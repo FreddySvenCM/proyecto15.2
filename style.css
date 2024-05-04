@@ -27,7 +27,7 @@ body {
 
 /* Navegacion */
 #navegacion {
-  /* border: 1px solid var(--colorBorde); */
+  border: 1px solid var(--colorBorde);
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -40,7 +40,6 @@ body {
   color: var(--colorBorde);
   font-weight: 900;
   font-family: cursive;
-
 }
 
 #navegacion #menu {
@@ -214,6 +213,7 @@ label #cancelar {
 /* Responsivo para celulares */
 @media (max-width: 576px) {
   /* Navegacion */
+  
   #check:checked ~ label #hamburguesa {
     display: block;
   }
@@ -229,27 +229,41 @@ label #cancelar {
     top: 10px;
   }
   
-  #menu {
-    width: 300px;
-    background: white;
-    padding: 20px;
-    position: absolute;
-    top: 60px;
-    border-radius: 10px;
-    left: -300px;
-    transition: all ease 0.5s;
-    opacity: 0;
-  }
+ /* Estilo del menú */
+ #menu {
+  border: 1px solid var(--colorBorde);
+  width: 300px;
+  background: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column; /* Pone los elementos en una columna */
+  align-items: center; /* Centra los elementos horizontalmente */
+  position: absolute;
+  top: 60px;
+  border-radius: 10px;
+  left: -300px;
+  transition: all ease 0.5s;
+  opacity: 0;
+}
   
-  #menu ul li {
-    display: block;
-    border-bottom: 1px solid white;
-  }
+#menu ul li {
+  border-bottom: 1px solid white;
+  padding: 10px 0; /* Ajusta el espacio interno */
+  width: 100%; /* Ocupa todo el ancho */
+  text-align: center; /* Centra el texto */
+  margin: 5px;
+  background-color: var(--colorBorde);
+  color: var(--colorBorde2);
+}
   
   #check:checked ~ #menu {
     left: 1px;
     opacity: 1;
   }
-  
+  #navegacion #menu ul li:hover {
+    background-color: var(--colorBorde2);
+    transition: background-color 0.3s ease;
+    color: var(--colorBorde1);
+  }
 
 }
